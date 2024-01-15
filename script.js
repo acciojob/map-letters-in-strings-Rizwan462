@@ -1,17 +1,23 @@
 //your JS code here. If required.
-function Mapletter(word){
-	const letterMap = {};
+function mapLetters(word) {
+  const letterMap = {};
 
-for(let i = 0; i<word.length; i++){
-	const letter = word[i];
+  for (let i = 0; i < word.length; i++) {
+    const letter = word[i];
+    
+    // If the letter is not in the map, initialize an empty array for it
+    if (!(letter in letterMap)) {
+      letterMap[letter] = [];
+    }
 
-	if(!(letter in letterMap)){
-		letterMap[letter] = [];
-	}
-	letterMap[letter].push(i);
+    // Add the current index to the array for the letter
+    letterMap[letter].push(i);
+  }
+
+  return letterMap;
 }
-	return letterMap;
-}
-console.log(mapLetters("dodo"));   
-console.log(mapLetters("froggy")); 
-console.log(mapLetters("grapes"));
+
+// Examples
+console.log(mapLetters("dodo"));   // Output: { d: [0, 2], o: [1, 3] }
+console.log(mapLetters("froggy")); // Output: { f: [0], r: [1], o: [2], g: [3, 4], y: [5] }
+console.log(mapLetters("grapes")); // Output: { g: [0], r: [1], a: [2], p: [3], e: [4], s: [5] }
