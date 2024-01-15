@@ -1,5 +1,5 @@
 //your JS code here. If required.
-function mapLetter(word){
+function mapLetters(word){
 	const letterMap = {};
 
 for(let i = 0; i<word.length; i++){
